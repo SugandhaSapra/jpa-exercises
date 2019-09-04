@@ -1,0 +1,1 @@
+The FetchType.LAZY tells JPA to only fetch the related entities from the database when we use the relationship between entities.

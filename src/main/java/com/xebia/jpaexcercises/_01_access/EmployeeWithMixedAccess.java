@@ -3,13 +3,14 @@ package com.xebia.jpaexcercises._01_access;
 import javax.persistence.*;
 
 @Entity
-@Access(AccessType.FIELD)
+//@Access(AccessType.FIELD)
 public class EmployeeWithMixedAccess {
     @Id
     private long id;
     private String username;
     @Transient
     private String email;
+
 
     public long getId() {
         return id;
@@ -25,6 +26,10 @@ public class EmployeeWithMixedAccess {
 
     public void setUsername(String username) {
         this.username = username;
+    }
+
+    public void setEmailAddress(String email) {
+        this.email = email;
     }
 
     @Access(AccessType.PROPERTY)
