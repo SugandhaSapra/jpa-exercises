@@ -12,7 +12,11 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    @ManyToMany
+       @ManyToMany
+       @JoinTable(
+               name = "emp_proj",
+               joinColumns = @JoinColumn(name = "emp_id"),
+               inverseJoinColumns = @JoinColumn(name = "proj_id"))
     private List<Employee> employees;
 
     public Project() {

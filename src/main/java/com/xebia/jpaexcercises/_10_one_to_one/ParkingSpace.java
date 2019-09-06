@@ -1,6 +1,7 @@
 package com.xebia.jpaexcercises._10_one_to_one;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "parking_lot")
@@ -13,7 +14,8 @@ public class ParkingSpace {
 
     public ParkingSpace() {
     }
-
+    @OneToOne(mappedBy = "parkingSpace")
+    private Employee employee;
     public ParkingSpace(int lotNo) {
         this.lotNo = lotNo;
     }

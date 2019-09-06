@@ -1,5 +1,7 @@
 package com.xebia.jpaexcercises._08_many_to_one;
 
+import com.sun.istack.internal.NotNull;
+
 import javax.persistence.*;
 
 @Entity
@@ -13,6 +15,8 @@ public class Employee {
     private long salary;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
+    @NotNull
+    @JoinColumn(name = "dept_id")
     private Department department;
 
     public Employee() {

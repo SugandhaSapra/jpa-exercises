@@ -13,7 +13,8 @@ public class Employee {
     private Long id;
     private String name;
     private long salary;
-    @ManyToMany
+
+      @ManyToMany(mappedBy = "employees")
     private List<Project> projects;
 
     public Employee() {

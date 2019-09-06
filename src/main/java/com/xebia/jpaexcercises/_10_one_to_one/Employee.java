@@ -1,6 +1,7 @@
 package com.xebia.jpaexcercises._10_one_to_one;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "employees")
@@ -11,7 +12,8 @@ public class Employee {
     private Long id;
     private String name;
     private long salary;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.PERSIST)
+    @JoinColumn(name="plot_id")
     private ParkingSpace parkingSpace;
 
     public Employee() {

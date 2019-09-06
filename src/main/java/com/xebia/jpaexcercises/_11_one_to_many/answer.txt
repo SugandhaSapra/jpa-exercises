@@ -1,0 +1,30 @@
+1.)
+Optional is being removed because it makes the association mandatory.
+
+2.) Two select queries are fired because entitymanager.find() is calling toString method. In toString method employee is calling department.
+So 2nd select query is retrieving the department details.
+
+3.)
+Employee :
+
+department_id	bigint(20)	YES	MUL
+id	bigint(20)	NO	PRI
+name	varchar(255)	YES
+salary	bigint(20)	NO
+
+Department :
+id	bigint(20)	NO	PRI
+name	varchar(255)	YES
+
+4.)
+inverse side : Department
+Owning side :Employee
+
+5.) 2 queries are fired
+54.356 [main] DEBUG org.hibernate.SQL - select department0_.id as id1_0_0_, department0_.name as name2_0_0_ from departments department0_ where department0_.id=?
+54.362 [main] DEBUG org.hibernate.SQL - select employees0_.department_id as departme4_1_0_, employees0_.id as id1_1_0_, employees0_.id as id1_1_1_, employees0_.department_id as departme4_1_1_, employees0_.name as name2_1_1_, employees0_.salary as salary3_1_1_ from employees employees0_ where employees0_.department_id=?
+
+6.)
+If we remove mappedBy, a new departments_employees table is created. While inserting data to employee table, department_id
+   is not populated. Since, the bidrectional association is broken and the inverse side
+   doesn't maps to the owning side.

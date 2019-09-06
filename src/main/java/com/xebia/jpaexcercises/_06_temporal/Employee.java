@@ -10,6 +10,8 @@ import java.util.Date;
 public class Employee {
 
     @Id
+    @GeneratedValue(generator = "myTableGen2")
+    @TableGenerator(name = "myTableGen2")
     private Long id;
 
     @Column(name = "full_name")

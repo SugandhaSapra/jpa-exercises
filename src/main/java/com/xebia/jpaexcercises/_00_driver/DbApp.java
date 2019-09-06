@@ -5,8 +5,8 @@ package com.xebia.jpaexcercises._00_driver;
 //import com.xebia.jpaexcercises._01_access.EmployeeWithPropertyAccess;
 //import com.xebia.jpaexcercises._03_lazy.Employee;
 //import com.xebia.jpaexcercises._04_lob.Employee;
-import com.xebia.jpaexcercises._05_enum.Employee;
 import com.xebia.jpaexcercises._05_enum.EmployeeType;
+import com.xebia.jpaexcercises._07_id_gen.Employee;
 
 
 import javax.persistence.EntityManager;
@@ -79,13 +79,24 @@ public class DbApp {
         entityManager.persist(lobEmployee);*/
 
 
-       Employee  enumEmployee=new Employee();
+      /* Employee  enumEmployee=new Employee();
         enumEmployee.setBio("Sample");
         enumEmployee.setEmployeeType(EmployeeType.FULL_TIME);
         enumEmployee.setId(1L);
         enumEmployee.setName("Sample");
-        entityManager.persist(enumEmployee);
+        entityManager.persist(enumEmployee);*/
+
+        /*Employee tableGeneratorEmployee=new Employee();
+        tableGeneratorEmployee.setId(1L);
+        tableGeneratorEmployee.setName("Sample");
+        tableGeneratorEmployee.setBio("Sample");
+        entityManager.persist(tableGeneratorEmployee);
         entityManager.getTransaction().commit();
+        Employee foundTableGeneratorEmployee=entityManager.find(Employee.class,1L);
+        System.out.println(foundTableGeneratorEmployee);*/
+
+
+
         entityManager.close();
         entityManagerFactory.close();
 
